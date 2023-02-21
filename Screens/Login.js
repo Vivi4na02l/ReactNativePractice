@@ -51,6 +51,7 @@ export function Login({navigation}) {
     const oldUsers = existingUsers ? JSON.parse(existingUsers) : [];
     setUsers(oldUsers);
 
+    //route.params.username
     if (users.find(user => user.username == usernameLogin && user.password == passwordLogin)) {
       alert(`Welcome ${usernameLogin}!`);
       navigation.navigate('Main');

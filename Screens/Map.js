@@ -1,11 +1,27 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Dimensions,SafeAreaView,StyleSheet,} from 'react-native';
 import MapView from 'react-native-maps';
 // import stations from './famel.json';
 // import famel from './data/famel.json';
 
 export function Map({navigation, route}) {
+  // alert('oi'+JSON.stringify(route))
+
+  const [coords, setCoords] = useState({
+    latitude: 41.354639,
+    longitude: -8.756689,
+  });
+
+  useEffect(() => {
+    if (route.params !== undefined) {
+      setCoords({
+        latitude: route.params.latitude,
+        longitude: route.params.longitude,
+      });
+    }
+  }, [route.params]);
+
   let height = Dimensions.get('window').height;
   let width = Dimensions.get('window').width;
   // const station = route.params.index
@@ -44,8 +60,8 @@ export function Map({navigation, route}) {
     <MapView
       style={{width: '100%', height: '100%'}}
       region={{
-        latitude: 41.354639,
-        longitude: -8.756689,
+        latitude: coords.latitude,
+        longitude: coords.longitude,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       }}

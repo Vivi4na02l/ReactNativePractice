@@ -91,7 +91,8 @@ export function Home({navigation, route}) {
                 <Card.Image
                     source={{uri: stations[index].image}}
                 />
-                <Pressable style={Object.assign({}, styles.button, styles.center)} onPress={() => navigation.navigate('Map', {index: index})}>
+                <Pressable style={Object.assign({}, styles.button, styles.center)}
+                           onPress={() => navigation.navigate('Map', {latitude: station.coordinates.latitude, longitude: station.coordinates.longitude})}>
                     <Text style={styles.buttonTxt}>View Location</Text>
                 </Pressable>
             </Card>
