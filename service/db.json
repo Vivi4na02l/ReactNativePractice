@@ -1,0 +1,90 @@
+{
+  "routes": [
+    {
+      "id": 1,
+      "name": "Route 1",
+      "origin": "Vila do Conde",
+      "destination": "Porto",
+      "type": "bus",
+      "status": "on time",
+      "delay": 0,
+      "next_departure_time": "12:00 PM"
+    },
+    {
+      "id": 2,
+      "name": "Route 2",
+      "origin": "Vila do Conde",
+      "destination": "Matosinhos",
+      "type": "metro",
+      "status": "delayed",
+      "delay": 15,
+      "next_departure_time": "12:15 PM"
+    },
+    {
+      "id": 3,
+      "name": "Route 3",
+      "origin": "Vila do Conde",
+      "destination": "Maia",
+      "type": "tram",
+      "status": "on time",
+      "delay": 0,
+      "next_departure_time": "12:30 PM"
+    },
+    {
+      "id": 4,
+      "name": "Route 4",
+      "origin": "Vila do Conde",
+      "destination": "Braga",
+      "type": "train",
+      "status": "on time",
+      "delay": 0,
+      "next_departure_time": "1:00 PM"
+    },
+    {
+      "id": 5,
+      "name": "Route 5",
+      "origin": "Vila do Conde",
+      "destination": "Lisbon",
+      "type": "bus",
+      "status": "on time",
+      "delay": 0,
+      "next_departure_time": "2:00 PM"
+    },
+    {
+      "id": 6,
+      "name": "Route 6",
+      "origin": "Vila do Conde",
+      "destination": "Faro",
+      "type": "train",
+      "status": "on time",
+      "delay": 0,
+      "next_departure_time": "3:00 PM"
+    }
+  ],
+  "stations": [
+    {
+      "name": "Vila do Conde - Avenida",
+      "location": {
+        "latitude": 41.354639,
+        "longitude": -8.756689
+      },
+      "lines": ["Linha 1", "Linha 2"]
+    },
+    {
+      "name": "Vila do Conde - Estação",
+      "location": {
+        "latitude": 41.356422,
+        "longitude": -8.757111
+      },
+      "lines": ["Linha 3"]
+    },
+    {
+      "name": "Vila do Conde - São Martinho",
+      "location": {
+        "latitude": 41.360083,
+        "longitude": -8.757944
+      },
+      "lines": ["Linha 4"]
+    }
+  ]
+}
