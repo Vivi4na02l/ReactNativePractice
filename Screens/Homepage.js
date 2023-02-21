@@ -1,6 +1,10 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-alert */
+/* eslint-disable quotes */
 import React, {useState} from 'react';
 import {Dimensions, SafeAreaView,ScrollView,TextInput,StyleSheet,Text,TouchableOpacity,View,Button,Pressable,Image,} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import stations from './data/famel.json';
 import { Card } from '@rneui/themed';
 
@@ -58,31 +62,21 @@ export function Home({navigation, route}) {
     },
   });
 
+  let change = event => {
+    navigation.navigate('Change');
+  };
+
   return (
     <ScrollView>
-        {/* <View style={styles.body}>
-            <View style={styles.div}>
-                <Text style={Object.assign({}, styles.txt, styles.center)}>Porto</Text>
-                <Pressable style={Object.assign({}, styles.button, styles.center)}>
-                    <Text style={Object.assign({}, styles.buttonTxt, styles.center)}>View location</Text>
-                </Pressable>
-            </View>
-
-            <View style={styles.div}>
-                <Text style={Object.assign({}, styles.txt, styles.center)}>Lisboa</Text>
-                <Pressable style={Object.assign({}, styles.button, styles.center)}>
-                    <Text style={Object.assign({}, styles.buttonTxt, styles.center)}>View location</Text>
-                </Pressable>
-            </View>
-
-            <View style={styles.div}>
-                <Text style={Object.assign({}, styles.txt, styles.center)}>Aveiro</Text>
-
-                <Pressable style={Object.assign({}, styles.button, styles.center)}>
-                    <Text style={Object.assign({}, styles.buttonTxt, styles.center)}>View location</Text>
-                </Pressable>
-            </View>
-        </View> */}
+        <TouchableOpacity style={{//backgroundColor: 'white',
+                                  margin: 0,
+                                  position: 'absolute',
+                                  right: 0,
+                                  top: 0,
+                                  zIndex:10}}
+                          onPress={change}>
+            <MaterialCommunityIcons name="account-box-outline" color="#F50057" size={40} />
+        </TouchableOpacity>
 
         {stations.map((station,index) => (
             <Card>
@@ -97,25 +91,6 @@ export function Home({navigation, route}) {
                 </Pressable>
             </Card>
         ))}
-
-{/*     {
-            famel.map((item, index) =>{
-                return(
-                    <Card>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Card.Divider />
-                        <Image
-                            style={styles.image}
-                            source={{ uri:item.image }}
-                        />
-                        <Pressable onPress={() => navigation.navigate('Map', {index: index})} style={Object.assign({}, styles.button, styles.center)}>
-                            <Text style={styles.buttonTxt}>View Location</Text>
-                        </Pressable>
-                    </Card>
-
-                )
-            })
-        } */}
     </ScrollView>
   );
 }

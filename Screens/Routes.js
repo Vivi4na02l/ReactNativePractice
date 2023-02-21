@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useState, useEffect} from 'react';
-import {Dimensions, FlatList, StyleSheet, Text, View} from 'react-native';
-import stations from './data/famel.json';
-import { Card } from '@rneui/themed';
+import {StatusBar,Dimensions, FlatList, StyleSheet, Text, View} from 'react-native';
 
 export function Routes({navigation, route}) {
     const [RouteData, setRouteData] = useState([]);
@@ -64,6 +62,8 @@ export function Routes({navigation, route}) {
 
     return (
         <>
+            {/* <StatusBar hidden={true} /> */}
+            <StatusBar backgroundColor="#F50057" />
             <View>
                 <Text style={styles.Header}>Next departures</Text>
                 <FlatList
@@ -81,14 +81,14 @@ let height = Dimensions.get('window').height;
 let width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
     Header: {
-        color: '#A63A50',
+        color: '#F50057',
         fontSize: 20,
         fontWeight: 'bold',
         marginHorizontal: 16,
         marginTop: 30,
       },
       listItem: {
-        backgroundColor: '#A63A50',
+        backgroundColor: '#F50057',
         padding: 20,
         marginVertical: 8,
         marginHorizontal: 16,
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         image:{
             width: width * 0.8,
             height:300,
-            resizeMode:"contain",
-            alignSelf: 'center'
+            resizeMode:'contain',
+            alignSelf: 'center',
         },
 })

@@ -54,7 +54,7 @@ export function Login({navigation}) {
     //route.params.username
     if (users.find(user => user.username == usernameLogin && user.password == passwordLogin)) {
       alert(`Welcome ${usernameLogin}!`);
-      navigation.navigate('Main');
+      navigation.navigate('Travel');
     } else {
       alert(`Username or password incorrects!`)
     }

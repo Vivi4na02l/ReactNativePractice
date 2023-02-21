@@ -3,28 +3,20 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
-// import Icon from 'react-native-vector-icons/FontAwesome5';
-
-// import Icon from '@mdi/react';
-// import { mdiChatOutline } from '@mdi/js';
-
-// import Icon from 'react-native-vector-icons/FontAwesome';
-// const MyIcon = <Icon name="rocket" size={30} color="#900" />;
-
+import { Text, Dimensions, StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-{/* <Icon path={mdiAlarm} size={1} />
-function Icons({name, size, color}) {
-  return <Icon name={name} size={size} color={color}/>
-} */}
-
-import { Text, Dimensions, StyleSheet } from 'react-native';
 import {Register} from './Screens/Register';
 import {Login} from './Screens/Login';
+import {Change} from './Screens/Change';
+
 import {Home} from './Screens/Homepage';
 import {Map} from './Screens/Map';
 import {Routes} from './Screens/Routes';
+
+import {TVflix} from './Screens/TVflix';
+import {Search} from './Screens/Search';
+import {WatchLater} from './Screens/WatchLater';
 
 const height = Dimensions.get('window').height;
 const Stack = createNativeStackNavigator();
@@ -52,16 +44,27 @@ export default function App() {
           component={Login}
         />
         <Stack.Screen
-          name="Main"
-          component={Main}
+          name="Change"
+          component={Change}
         />
-        <Stack.Screen name="Map" component={Map}/>
+        <Stack.Screen
+          name="Travel"
+          component={Travel}
+        />
+        <Stack.Screen
+          name="Map"
+          component={Map}
+        />
+        <Stack.Screen
+          name="TV"
+          component={TV}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-function Main() {
+function Travel() {
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -90,7 +93,7 @@ function Main() {
             } else {
               return <MaterialCommunityIcons name="city-variant-outline" color="#ff93b9" size={30} />;
             }
-          }
+          },
         }}
       />
 
@@ -112,7 +115,7 @@ function Main() {
             } else {
               return <MaterialCommunityIcons name="map-marker-outline" color="#ff93b9" size={30} />;
             }
-          }
+          },
         }}
       />
 
@@ -134,7 +137,88 @@ function Main() {
             } else {
               return <MaterialCommunityIcons name="map-outline" color="#ff93b9" size={30} />;
             }
-          }
+          },
+        }}
+      />
+
+    </Tab.Navigator>
+  );
+}
+
+function TV() {
+  return (
+    <Tab.Navigator
+      initialRouteName="TVflix"
+      screenOptions={{
+        tabBarHideOnKeyboard: true,
+        tabBarStyle: { height: height * 0.075, padding: 10, backgroundColor: 'white'},
+        marginTop: 100,
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen
+        name="TVflix"
+        component={TVflix}
+        options={{
+          tabBarLabel: ({focused, color, size}) => {
+            if (focused) {
+              return <Text style={styles.selected}>Movies</Text>
+            } else {
+              return <Text style={styles.notSelected}>Movies</Text>
+            }
+          },
+
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) {
+              return <MaterialCommunityIcons name="popcorn" color="#F50057" size={30} />;
+            } else {
+              return <MaterialCommunityIcons name="popcorn" color="#ff93b9" size={30} />;
+            }
+          },
+        }}
+      />
+
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarLabel: ({focused, color, size}) => {
+            if (focused) {
+              return <Text style={styles.selected}>Search</Text>
+            } else {
+              return <Text style={styles.notSelected}>Search</Text>
+            }
+          },
+
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) {
+              return <MaterialCommunityIcons name="movie-search" color="#F50057" size={30} />;
+            } else {
+              return <MaterialCommunityIcons name="movie-search-outline" color="#ff93b9" size={30} />;
+            }
+          },
+        }}
+      />
+
+      <Tab.Screen
+        name="WatchLater"
+        component={WatchLater}
+        options={{
+          tabBarLabel: ({focused, color, size}) => {
+            if (focused) {
+              return <Text style={styles.selected}>Watch later</Text>;
+            } else {
+              return <Text style={styles.notSelected}>Watch later</Text>;
+            }
+          },
+
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) {
+              return <MaterialCommunityIcons name="clock" color="#F50057" size={30} />;
+            } else {
+              return <MaterialCommunityIcons name="clock-outline" color="#ff93b9" size={30} />;
+            }
+          },
         }}
       />
 
