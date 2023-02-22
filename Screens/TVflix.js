@@ -18,6 +18,31 @@ export function TVflix({navigation, route}) {
     const [movieData, setMovieData] = useState([]);
 
     useEffect(() => {
+    //     let movieArray = []
+
+    //     for (const movie of movieTitle) {
+    //         axios.get(`${BASE_URL}&t=${movie}`)
+    //             .then(response => {
+    //                 // alert(JSON.stringify(response.data));
+    //                 movieArray.push({
+    //                     Title: response.data.Title,
+    //                     Poster: response.data.Poster,
+    //                     Genre: response.data.Genre,
+    //                 });
+
+
+
+    //                 setMovieData(movieArray);
+    //                 setIsTrue(true);
+    //                 // alert(JSON.stringify(movieArray));
+    //             })
+    //             .catch(error => {
+    //                 console.error(error);
+    //                 setIsTrue(false);
+    //             });
+    //     }
+    //     alert('wait a damn minute'+JSON.stringify(movieData));
+    // }, []);
         const moviePromises = movieTitle.map(movie => axios.get(`${BASE_URL}&t=${movie}`));
         Promise.all(moviePromises)
             .then(responses => {
@@ -49,7 +74,7 @@ export function TVflix({navigation, route}) {
       // backgroundImage: 'linear-gradient(black, #93e9ff)',
     },
     buttonSave:{
-        backgroundColor:'#9b4dca',
+        backgroundColor:'#ff93b9',
             paddingHorizontal:32,
             paddingVertical:8,
             borderRadius:4,
@@ -128,7 +153,7 @@ export function TVflix({navigation, route}) {
                         <Card.Title>{movie.Title}</Card.Title>
                         <Text>Gênero: {movie.Genre}</Text>
                         <Pressable  style={styles.buttonSave} onPress={handleSaveMovie}>
-                            <Text style={{color:"#fff"}}>Save to watch later</Text>
+                            <Text style={{color:"#000"}}>Save to watch later</Text>
                         </Pressable>
                     </Card>
                 ))}
